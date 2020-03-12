@@ -2,14 +2,8 @@
 
 curl "https://tic-tac-toe-wdi.herokuapp.com/sign-out" \
   --include \
-  --request POST \
+  --request DELETE \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
-  --data '{
-    "credentials": {
-      "email": "'"${EMAIL}"'",
-      "password": "'"${PASSWORD}"'"
-    }
-  }'
 
 echo
