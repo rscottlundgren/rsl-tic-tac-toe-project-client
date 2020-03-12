@@ -13,5 +13,55 @@
     </head>
     <body>
       <h1>Browser Template</h1>
+
+      <p id="message"><p>
+
+      <form id="sign-up" class="border">
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
+          <input type="submit" value="Sign up!">
+        </fieldset>
+      </form>
+
+      <form id="sign-in" class="border">
+        <fieldset>
+          <legend>Sign in!</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <input type="submit" value="Sign in!">
+        </fieldset>
+      </form>
+
+      <form id="change-password" class="border">
+        <fieldset>
+          <legend>Change Password!</legend>
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <input type="submit" value="Change Password!">
+        </fieldset>
+      </form>
+
+      <form id="sign-out" class="border">
+        <input type="submit" value="Sign Out">
+      </form>
+
+      <div class="container">
+        <h1>WOPR/WarGames/Falcon</h1>
+        <div class="row">
+          <div class="col-4 box square">0, 2</div>
+          <div class="col-4 box square">1, 2</div>
+          <div class="col-4 box square">2, 2</div>
+          <div class="col-4 box square">0, 1</div>
+          <div class="col-4 box square">1, 1</div>
+          <div class="col-4 box square">2, 1</div>
+          <div class="col-4 box square">0, 0</div>
+          <div class="col-4 box square">1, 0</div>
+          <div class="col-4 box square">2, 0</div>
+        </div>
+    </div>
+
     </body>
 </html>
