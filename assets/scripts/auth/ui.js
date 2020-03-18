@@ -2,58 +2,71 @@
 
 const store = require('../store')
 
+// Sign-Up User Interface
 const signUpSuccess = function (data) {
-  $('#message').text('Signed up successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#falcon-output').text('Signed up successfully')
+  $('#sign-up').trigger('reset')
+  $('.hide').show()
+  $('.show').hide()
   console.log('signUpSuccess data is: ', data)
 }
-
 const signUpFailure = function (error) {
-  $('#message').text('Error on sign up')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#falcon-output').text('Error on sign up')
+  $('#sign-up').trigger('reset')
   console.log('signUpFailure error is: ', error)
 }
 
+// Sign-In User Interface
 const signInSuccess = function (data) {
-  $('#message').text('Signed in successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('signInSuccess data is: ', data)
+  $('#falcon-output').text('Signed in successfully')
+  $('#sign-in').trigger('reset')
+  $('.hide').show()
+  $('.show').hide()
+  console.log(data)
   store.user = data.user
+  console.log(store)
 }
 const signInFailure = function (error) {
-  $('#message').text('Error on sign in')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.log('signInFailure error is: ', error)
+  $('#falcon-output').text('Error on sign in')
+  $('#sign-in').trigger('reset')
 }
 
+// Change Password User Interface
 const changePasswordSuccess = function (data) {
-  $('#message').text('Password changed successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('changePasswordSuccess data is: ', data)
+  $('#falcon-output').text('Password changed successfully')
+  $('#change-password').trigger('reset')
 }
 const changePasswordFailure = function (error) {
-  $('#message').text('Error on change password')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.log('changePasswordFailure error is: ', error)
+  $('#falcon-output').text('Error on change password')
+  $('#change-password').trigger('reset')
 }
 
+// Sign-Out User Interface
 const signOutSuccess = function (data) {
-  $('#message').text('Signed out successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('signOutSuccess data is: ', data)
+  $('#falcon-output').text('Signed out successfully')
+  $('.hide').hide()
+  $('.show').show()
+  $('.col-4.box.zero').css('border-color', 'black')
+  $('.col-4.box.zero').text('')
+  $('.col-4.box.one').css('border-color', 'black')
+  $('.col-4.box.one').text('')
+  $('.col-4.box.two').css('border-color', 'black')
+  $('.col-4.box.two').text('')
+  $('.col-4.box.three').css('border-color', 'black')
+  $('.col-4.box.three').text('')
+  $('.col-4.box.four').css('border-color', 'black')
+  $('.col-4.box.four').text('')
+  $('.col-4.box.five').css('border-color', 'black')
+  $('.col-4.box.five').text('')
+  $('.col-4.box.six').css('border-color', 'black')
+  $('.col-4.box.six').text('')
+  $('.col-4.box.seven').css('border-color', 'black')
+  $('.col-4.box.seven').text('')
+  $('.col-4.box.eight').css('border-color', 'black')
+  $('.col-4.box.eight').text('')
 }
 const signOutFailure = function (error) {
-  $('#message').text('Error on sign out')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.log('signOutFailure error is: ', error)
+  $('#falcon-output').text('Error on sign out')
 }
 
 module.exports = {
