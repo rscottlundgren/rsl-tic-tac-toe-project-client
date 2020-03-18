@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>TTT Terminal</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,59 +12,103 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>WOPR/WarGames</h1>
 
-      <p id="message"><p>
+      <p id="falcon-output"><p>
 
-      <form id="sign-up" class="border">
-        <fieldset>
-          <legend>Sign up!</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
-          <input type="submit" value="Sign up!">
-        </fieldset>
-      </form>
+      <div class="col-12 container sign-up">
+        <form id="sign-up" class="show">
+          <div class="row">
+            <div class="row sign-up-email">
+              <div class="column text">Email:</div><input type="text" name="credentials[email]" class="column user-input">
+            </div>
+            <div class="row sign-up-pw">
+              <div class="column text">Password:</div><input type="password" name="credentials[password]" class="column user-input">
+            </div>
+            <div class="row sign-up-pw-conf">
+              <div class="column text">Confirm:</div><input type="password" name="credentials[password_confirmation]" class="column user-input">
+            </div>
+            <div class="row sign-up-register">
+              <input type="submit" value="Register">
+            </div>
+          </div>
+        </form>
+      </div>
 
-      <form id="sign-in" class="border">
-        <fieldset>
-          <legend>Sign in!</legend>
-            <input type="text" name="credentials[email]" placeholder="Email">
-            <input type="password" name="credentials[password]" placeholder="Password">
-            <input type="submit" value="Sign in!">
-        </fieldset>
-      </form>
+      <div class="col-12 container sign-in">
+        <form id="sign-in" class="show">
+          <div class="row">
+            <div class="row sign-in-email">
+              <div class="column text">Email:</div><input type="text" name="credentials[email]" class="column user-input">
+            </div>
+            <div class="row sign-in-pw">
+              <div class="column text">Password:</div><input type="password" name="credentials[password]" class="column user-input">
+            </div>
+            <div class="row sign-in-authenticate">
+              <input type="submit" value="Authenticate">
+            </div>
+          </div>
+        </form>
+      </div>
 
-      <form id="change-password" class="border">
-        <fieldset>
-          <legend>Change Password!</legend>
-          <input type="password" name="passwords[old]" placeholder="Old Password">
-          <input type="password" name="passwords[new]" placeholder="New Password">
-          <input type="submit" value="Change Password!">
-        </fieldset>
-      </form>
+      <div class="col-12 container change-pw ">
+        <form id="change-password" class="hide">
+          <div class="row">
+            <div class="row change-pw-old">
+              <div class="column text">Password [Old]:</div><input type="password" name="passwords[old]" class="column user-input">
+            </div>
+            <div class="row change-pw-new">
+              <div class="column text">Password [New]:</div><input type="password" name="passwords[new]" class="column user-input">
+            </div>
+            <div class="row change-pw-authenticate">
+              <input type="submit" value="Change Password!">
+            </div>
+          </div>
+        </form>
+      </div>
 
-      <form id="sign-out" class="border">
-        <input type="submit" value="Sign Out">
-      </form>
+    <div class="row">
+      <div class="col-3 container sign-out">
+        <form id="sign-out" class="hide">
+          <div class="column text sign-out-btn">
+            <input type="submit" value="Sign Out">
+          </div>
+        </form>
+      </div>
 
-      <form id="create-game">
-        <input type="submit" value="Create Game">
-      </form>
+      <div class="col-3 container create-game">
+        <form id="create-game" class="hide">
+          <div class="column text create-game-btn">
+            <input type="submit" value="Create Game">
+          </div>
+        </form>
+      </div>
+
+      <div class="col-3 container game-stats">
+        <form id="game-stats" class="hide">
+          <div class="column text game-stats-btn">
+            <input type="submit" value="Game Stats">
+          </div>
+        </form>
+      </div>
+    </div>
 
       <div class="container">
-        <div class="row">
-          <div id='0' class="col-4 box square">0</div>
-          <div id='1' class="col-4 box square">1</div>
-          <div id='2' class="col-4 box square">2</div>
-          <div id='3' class="col-4 box square">3</div>
-          <div id='4' class="col-4 box square">4</div>
-          <div id='5' class="col-4 box square">5</div>
-          <div id='6' class="col-4 box square">6</div>
-          <div id='7' class="col-4 box square">7</div>
-          <div id='8' class="col-4 box square">8</div>
+        <div class="row hash">
+          <div id=0 data-cell-index='0' class="col-4 box zero"></div>
+          <div id=1 data-cell-index='1'class="col-4 box one"></div>
+          <div id=2 data-cell-index='2'class="col-4 box two"></div>
         </div>
-    </div>
+        <div class="row hash">
+          <div id=3 data-cell-index='3'class="col-4 box three"></div>
+          <div id=4 data-cell-index='4'class="col-4 box four"></div>
+          <div id=5 data-cell-index='5'class="col-4 box five"></div>
+        </div>
+        <div class="row hash">
+          <div id=6 data-cell-index='6'class="col-4 box six"></div>
+          <div id=7 data-cell-index='7'class="col-4 box seven"></div>
+          <div id=8 data-cell-index='8'class="col-4 box eight"></div>
+        </div>
+      </div>
 
     </body>
 </html>
