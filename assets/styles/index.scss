@@ -1,1 +1,146 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+@import './variables.scss';
+
+* {
+  align-items: center;
+}
+
+body {
+  font-family: $terminal-font;
+  background-color: black;
+  color: $falcon-color;
+  height: 100vh;
+}
+
+input[type=submit] {
+  @include falcon;
+  background: black;
+  border: 1px solid $falcon-color;
+  justify-content: center;
+}
+
+.column {
+  &.user-input{
+  @include user-input;
+  }
+}
+
+.container {
+
+}
+
+.row {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  &.col-3.container.text {
+    &.game-stats-btn {
+      justify-content: center;
+      align-items: center;
+    }
+    &.create-game-btn {
+      justify-content: center;
+      align-items: center;
+    }
+    &.sign-out-btn {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &.sign-up-email {
+    margin: 15px;
+  }
+  &.sign-up-pw {
+    margin: 15px;
+  }
+  &.sign-up-pw-conf {
+    margin: 15px;
+  }
+  &.sign-up-register {
+    justify-content: center;
+    margin: 15px;
+  }
+  &.sign-in-email {
+    margin: 15px;
+  }
+  &.sign-in-pw {
+    margin: 15px;
+  }
+  &.sign-in-authenticate {
+    justify-content: center;
+    margin: 15px;
+  }
+  &.change-pw-old {
+    margin: 15px;
+  }
+  &.change-pw-new {
+    margin: 15px;
+  }
+  &.change-pw-authenticate {
+    justify-content: center;
+    margin: 15px;
+  }
+}
+
+.column {
+    border: 1px solid cyan;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    padding: 5px;
+    &.text {
+      align-items: flex-end;
+    }
+}
+
+.hide {
+  display: none;
+}
+
+.col-4.box.zero {
+  @include tile-default
+}
+
+.col-4.box.one {
+  @include tile-default
+}
+
+.col-4.box.two {
+  @include tile-default
+}
+
+.col-4.box.three {
+  @include tile-default
+}
+
+.col-4.box.four {
+  @include tile-default
+}
+
+.col-4.box.five {
+  @include tile-default
+}
+
+.col-4.box.six {
+  @include tile-default
+}
+
+.col-4.box.seven {
+  @include tile-default
+}
+
+.col-4.box.eight {
+  @include tile-default
+}
+
+.player {
+  color: $player-color;
+}
+
+.falcon {
+  color: $falcon-color;
+}
