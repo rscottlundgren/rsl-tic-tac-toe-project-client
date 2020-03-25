@@ -1,15 +1,14 @@
 @mixin tile-default {
   font-family: $terminal-font;
   border-style: $border-style;
-  height: $tile-height;
   font-size: $type-size;
-  display: flex;
   justify-content: center;
   align-items: center;
-  border-color: black;
 }
 @mixin falcon {
   color: RGB(51, 255, 51);
+  font-size: 22px;
+  font-family: $terminal-font;
 }
 @mixin player {
   color: RGB(102, 255, 102)
@@ -19,9 +18,9 @@
   background: black;
   border: 1px solid $falcon-color;
 }
-$terminal-font: 1.3rem 'Inconsolata', monospace;
+$terminal-font: 'Inconsolata', monospace;
 $falcon-color: RGB(51, 255, 51);
 $player-color: RGB(102, 255, 102);
-$type-size: 107px;
+$type-size: 200px;
 $tile-height: 115px;
 $border-style: solid;
