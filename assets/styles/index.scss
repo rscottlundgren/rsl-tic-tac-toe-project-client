@@ -4,143 +4,184 @@
 
 * {
   align-items: center;
+  font-family: $terminal-font;
 }
 
 body {
   font-family: $terminal-font;
   background-color: black;
   color: $falcon-color;
-  height: 100vh;
+  justify-content: flex-start;
+  // border: 1px solid orange;
+  margin: 25px 25px 25px 25px;
+  padding: 0;
 }
 
-input[type=submit] {
-  @include falcon;
-  background: black;
+button {
+  display: flex;
+  padding: 5px;
+  color: $falcon-color;
   border: 1px solid $falcon-color;
+  justify-content: space-evenly;
+  background-color: black;
+  outline: none;
+  font-size: 21px;
+  font-family: $terminal-font;
+  width: 175px;
+}
+
+form {
+  display: flex;
+  font-size: 21px;
   justify-content: center;
 }
 
-.column {
-  &.user-input{
-  @include user-input;
-  }
-}
-
-.container {
-
-}
-
-.row {
-  border: 1px solid red;
+div {
+  justify-content: flex-start;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-basis: 100%;
-  &.col-3.container.text {
-    &.game-stats-btn {
-      justify-content: center;
-      align-items: center;
-    }
-    &.create-game-btn {
-      justify-content: center;
-      align-items: center;
-    }
-    &.sign-out-btn {
-      justify-content: center;
-      align-items: center;
+  &#stats {
+    // border: 1px solid pink;
+    height: 650px;
+  }
+  &#gameboard {
+    // border: 1px solid purple;
+    height: 650px;
+  }
+  &.container {
+    margin-right: 0;
+    &.col-12 {
+      justify-content: space-evenly;
     }
   }
-  &.sign-up-email {
-    margin: 15px;
+  &.col {
+    justify-content: flex-end;
+    flex-grow: 0;
   }
-  &.sign-up-pw {
-    margin: 15px;
+  &.row {
+    // border: 1px solid yellow;
+    &.col-12 {
+      margin: 0;
+      flex-grow: 0;
+      &.first-line {
+        justify-content: flex-start;
+        height: 45px;
+      }
+      &.second-line {
+        justify-content: flex-start;
+        height: 45px;
+      }
+      &.third-line {
+        justify-content: space-evenly;
+        height: 45px;
+      }
+      &.fourth-line {
+        justify-content: space-evenly;
+        height: 45px;
+      }
+      &.gameboard-stats {
+        justify-content: center;
+      }
+    }
+    &.col-6 {
+      height: 700px;
+    }
   }
-  &.sign-up-pw-conf {
-    margin: 15px;
+  &.btn-container {
+    justify-content: space-evenly;
   }
-  &.sign-up-register {
-    justify-content: center;
-    margin: 15px;
+  &.col-6 {
+    align-self: baseline;
   }
-  &.sign-in-email {
-    margin: 15px;
-  }
-  &.sign-in-pw {
-    margin: 15px;
-  }
-  &.sign-in-authenticate {
-    justify-content: center;
-    margin: 15px;
-  }
-  &.change-pw-old {
-    margin: 15px;
-  }
-  &.change-pw-new {
-    margin: 15px;
-  }
-  &.change-pw-authenticate {
-    justify-content: center;
-    margin: 15px;
+  &.box {
+    &.col-4 {
+      justify-content: center;
+      align-items: center;
+      height: 217px;
+      &.zero {
+        @include tile-default
+        border-color: transparent RGB(51, 255, 51) RGB(51, 255, 51) transparent;
+      }
+      &.one {
+        @include tile-default
+        border-color: transparent RGB(51, 255, 51) RGB(51, 255, 51) RGB(51, 255, 51);
+      }
+      &.two {
+        @include tile-default
+        border-color: transparent transparent RGB(51, 255, 51) RGB(51, 255, 51);
+      }
+      &.three {
+        @include tile-default;
+        border-color: RGB(51, 255, 51) RGB(51, 255, 51) RGB(51, 255, 51) transparent;
+      }
+      &.four {
+        @include tile-default;
+        border-color: RGB(51, 255, 51) RGB(51, 255, 51) RGB(51, 255, 51) RGB(51, 255, 51);
+      }
+      &.five {
+        @include tile-default;
+        border-color: RGB(51, 255, 51) transparent RGB(51, 255, 51) RGB(51, 255, 51);
+      }
+      &.six {
+        @include tile-default;
+        border-color: RGB(51, 255, 51) RGB(51, 255, 51) transparent transparent;
+      }
+      &.seven {
+        @include tile-default;
+        border-color: RGB(51, 255, 51) RGB(51, 255, 51) transparent RGB(51, 255, 51);
+      }
+      &.eight {
+        @include tile-default;
+        border-color: RGB(51, 255, 51) transparent transparent RGB(51, 255, 51);
+      }
+    }
   }
 }
 
-.column {
-    border: 1px solid cyan;
-    display: flex;
-    flex-direction: column;
-    flex-basis: 100%;
-    flex: 1;
-    padding: 5px;
-    &.text {
-      align-items: flex-end;
-    }
+p {
+  display: flex;
+  justify-content: flex-start;
+  // border: 1px solid $falcon-color;
+  font-family: $terminal-font;
+  padding: 5px;
+  width: 384px;
+  font-size: 21px;
+  margin-bottom: 0;
+}
+
+input {
+  display: flex;
+  padding: 5px;
+  color: $falcon-color;
+  border: 1px solid $falcon-color;
+  background-color: black;
+  outline: none;
+  font-size: 21px;
+  font-family: $terminal-font;
+  margin: 0 0 0 0;
+  &[type=submit] {
+    justify-content: space-evenly;
+    width: 175px;
+  }
+  &[type=password] {
+    width: 350px;
+  }
+  &[type=text] {
+    width: 350px;
+  }
+  &::placeholder {
+    color: $falcon-color;
+    opacity: 0.3;
+  }
 }
 
 .hide {
   display: none;
 }
 
-.col-4.box.zero {
-  @include tile-default
-}
-
-.col-4.box.one {
-  @include tile-default
-}
-
-.col-4.box.two {
-  @include tile-default
-}
-
-.col-4.box.three {
-  @include tile-default
-}
-
-.col-4.box.four {
-  @include tile-default
-}
-
-.col-4.box.five {
-  @include tile-default
-}
-
-.col-4.box.six {
-  @include tile-default
-}
-
-.col-4.box.seven {
-  @include tile-default
-}
-
-.col-4.box.eight {
-  @include tile-default
-}
-
-.player {
-  color: $player-color;
-}
-
-.falcon {
-  color: $falcon-color;
-}
+// .player {
+//   color: $player-color;
+// }
+//
+// .falcon {
+//   color: $falcon-color;
+// }
