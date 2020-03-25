@@ -3,46 +3,118 @@
 const store = require('../store')
 const gameEngine = require('./engine')
 
+const onPlayTrue = function (event) {
+  $('#console-line-one').text('Choose authentication method:')
+  $('#play-game-yes').addClass('hide')
+  $('#play-game-no').addClass('hide')
+  $('#open-register-form').removeClass('hide')
+  $('#open-authenticate-form').removeClass('hide')
+}
+
+const onPlayFalse = function (event) {
+  $('#console-line-one').text('--- Connection terminated ---')
+  $('#play-game-yes').addClass('hide')
+  $('#play-game-no').addClass('hide')
+  setTimeout(function () {
+    window.location.replace("https://www.google.com")
+  }, 2250)
+}
+
+const onOpenRegister = function (event) {
+  $('#sign-up').removeClass('hide')
+  $('#sign-in').addClass('hide')
+}
+
+const onOpenAuthenticate = function (event) {
+  $('#sign-in').removeClass('hide')
+  $('#sign-up').addClass('hide')
+}
+
 const onCreateGameSuccess = function (data) {
-  $('#falcon-output').removeClass()
-  $('#falcon-output').addClass('success')
-  $('.col-4.box').removeClass('player')
-  $('.col-4.box').removeClass('falcon')
-  $('.col-4.box.zero').css('border-color', 'transparent RGB(51, 255, 51) RGB(51, 255, 51) transparent')
-  $('.col-4.box.one').css('border-color', 'transparent RGB(51, 255, 51) RGB(51, 255, 51) RGB(51, 255, 51)')
-  $('.col-4.box.two').css('border-color', 'transparent transparent RGB(51, 255, 51) RGB(51, 255, 51)')
-  $('.col-4.box.three').css('border-color', 'RGB(51, 255, 51) RGB(51, 255, 51) RGB(51, 255, 51) transparent')
-  $('.col-4.box.four').css('border-color', 'RGB(51, 255, 51) RGB(51, 255, 51) RGB(51, 255, 51) RGB(51, 255, 51)')
-  $('.col-4.box.five').css('border-color', 'RGB(51, 255, 51) transparent RGB(51, 255, 51) RGB(51, 255, 51)')
-  $('.col-4.box.six').css('border-color', 'RGB(51, 255, 51) RGB(51, 255, 51) transparent transparent')
-  $('.col-4.box.seven').css('border-color', 'RGB(51, 255, 51) RGB(51, 255, 51) transparent RGB(51, 255, 51)')
-  $('.col-4.box.eight').css('border-color', 'RGB(51, 255, 51) transparent transparent RGB(51, 255, 51)')
-  // clearBoard()
-  console.log('New Game Created!')
-  console.log('New Game Created: ', data)
+  $('#console-line-one').text('Game initiated. Your move, Professor.')
+  $('#gameboard').removeClass('hide')
+  $('#0').removeClass('hide')
+  $('#1').removeClass('hide')
+  $('#2').removeClass('hide')
+  $('#3').removeClass('hide')
+  $('#4').removeClass('hide')
+  $('#5').removeClass('hide')
+  $('#6').removeClass('hide')
+  $('#7').removeClass('hide')
+  $('#8').removeClass('hide')
+  clearBoard()
   store.game = data
 }
-
 const onCreateGameFailure = function (error) {
-  $('#falcon-output').removeClass()
-  $('.col-4.box').removeClass('player')
-  $('.col-4.box').removeClass('falcon')
-  $('#falcon-output').addClass('failure')
-  console.log('Error Creating Game')
-  console.log('createGameFailure error is: ', error)
+  $('#console-line-one').text('Game initiation unsuccessful. Please try again.')
+  // console.log('Error Creating Game')
+  // console.log('createGameFailure error is: ', error)
 }
 
-const playerOneMove = function () {
-  $('#falcon-output').text('Your move, Professor.')
-  $('#falcon-output').removeClass()
-  $('#falcon-output').addClass('p1Move')
+const onCoordinateZero = function (event) {
+  if (store.player === 'X') {
+    $('#console-line-one').text('O to -1, 1.')
+    console.log('O to -1, 1.')
+  } else {
+    $('#console-line-one').text('X to -1, 1.')
+    console.log('X to -1, 1.')
+  }
 }
-
-const falconMove = function () {
-  const position = event.target.id
-  $('#falcon-output').text(`O to ${event.target.id}`)
-  $('#falcon-output').removeClass()
-  $('#falcon-output').addClass('falconMove')
+const onCoordinateOne = function (event) {
+  if (store.player === 'X') {
+    $('#console-line-one').text('O to 0, 1.')
+  } else {
+    $('#console-line-one').text('X to 0, 1.')
+  }
+}
+const onCoordinateTwo = function (event) {
+  if (store.player === 'X') {
+    $('#console-line-one').text('O to 1, 1.')
+  } else {
+    $('#console-line-one').text('X to 1, 1.')
+  }
+}
+const onCoordinateThree = function (event) {
+  if (store.player === 'X') {
+    $('#console-line-one').text('O to -1, 0.')
+  } else {
+    $('#console-line-one').text('X to -1, 0.')
+  }
+}
+const onCoordinateFour = function (event) {
+  if (store.player === 'X') {
+    $('#console-line-one').text('O to 0, 0.')
+  } else {
+    $('#console-line-one').text('X to 0, 0.')
+  }
+}
+const onCoordinateFive = function (event) {
+  if (store.player === 'X') {
+    $('#console-line-one').text('O to 1, 0.')
+  } else {
+    $('#console-line-one').text('X to 1, 0.')
+  }
+}
+const onCoordinateSix = function (event) {
+  if (store.player === 'X') {
+    $('#console-line-one').text('O to -1, -1.')
+  } else {
+    $('#console-line-one').text('X to -1, -1.')
+  }
+}
+const onCoordinateSeven = function (event) {
+  if (store.player === 'X') {
+    $('#console-line-one').text('O to 0, -1.')
+  } else {
+    $('#console-line-one').text('X to 0, -1.')
+  }
+}
+const onCoordinateEight = function (event) {
+  if (store.player === 'X') {
+    $('#console-line-one').text('O to 1, -1.')
+  } else {
+    $('#console-line-one').text('X to 1, -1.')
+  }
 }
 
 const onUpdateBoardSuccess = function (data) {
@@ -54,18 +126,17 @@ const onUpdateBoardSuccess = function (data) {
 const onUpdateBoardFailure = function (error) {
   $('#falcon-output').removeClass()
   $('#falcon-output').addClass('failure')
-  console.log('Error Updating Game')
-  console.log('updateBoardFailure error is: ', error)
+  // console.log('Error Updating Game')
+  // console.log('updateBoardFailure error is: ', error)
 }
 
 const onGameStatsAllSuccess = function (store) {
-  $('#falcon-output').text('You have played this many games: ' + store.games.length)
-  $('#falcon-output').removeClass()
-  $('#falcon-output').addClass('success')
-  console.log('All Games Collected!')
-  console.log(store.games.length)
-  console.log(store.games)
+  $('#console-line-two').text(`Total games played: ${store.games.length}`)
+  setTimeout(function () {
+    $('#console-line-two').text('')
+  }, 2000)
 }
+
 const onGameStatsAllFailure = function (error) {
   $('#falcon-output').removeClass()
   $('#falcon-output').addClass('failure')
@@ -75,11 +146,11 @@ const onGameStatsAllFailure = function (error) {
 
 const clearBoard = function () {
   store.player = 'X'
-//  store.cell.index = undefined
-//  store.cell.value = ''
-//  store.game.cells = ['','','','','','','','','']
-//  store.game.over = false
-//  store.games = ['']
+  store.cell.index = undefined
+  store.cell.value = ''
+  store.game.cells = ['','','','','','','','','']
+  store.game.over = false
+  store.games = ['']
   $('#0').text('')
   $('#1').text('')
   $('#2').text('')
@@ -92,34 +163,50 @@ const clearBoard = function () {
 }
 
 const winnerPlayerOneSuccess = function () {
-  $('#falcon-output').text('Well played, Professor.')
-  $('#falcon-output').removeClass()
-  $('#falcon-output').addClass('success')
+  $('#console-line-one').text('X has won, Professor.')
+  $('#console-line-two').text('Shall we play again?')
 }
 
 const winnerFalconSuccess = function () {
-  $('#falcon-output').text('You lost, Professor.')
-  $('#falcon-output').removeClass()
-  $('#falcon-output').addClass('failure')
+  $('#console-line-one').text('O has won, Professor.')
+  $('#console-line-two').text('Shall we play again?')
 }
 
 const gameDraw = function () {
-  $('#falcon-output').text('Stalemate, Professor.')
-  $('#falcon-output').removeClass()
-  $('#falcon-output').addClass('draw')
+  $('#console-line-one').text('Stalemate, Professor.')
+  $('#console-line-two').text('Shall we play again?')
+}
+
+const invalidMoveGP = function () {
+  $('#console-line-one').text('Invalid move, Professor.')
+  $('#console-line-two').text('Please select another coordinate.')
 }
 
 const invalidMove = function () {
-  $('#falcon-output').text('Invalid move, Professor.')
-  $('#falcon-output').removeClass()
-  $('#falcon-output').addClass('invalidMove')
+  $('#console-line-one').text('Invalid move, Professor.')
+  if (store.game.game.over === true) {
+    $('#console-line-two').text('The game is over. Shall we play again?')
+  } else {
+    $('#console-line-two').text('')
+  }
 }
 
 module.exports = {
+  onPlayTrue,
+  onPlayFalse,
+  onOpenRegister,
+  onOpenAuthenticate,
   onCreateGameSuccess,
   onCreateGameFailure,
-  playerOneMove,
-  falconMove,
+  onCoordinateZero,
+  onCoordinateOne,
+  onCoordinateTwo,
+  onCoordinateThree,
+  onCoordinateFour,
+  onCoordinateFive,
+  onCoordinateSix,
+  onCoordinateSeven,
+  onCoordinateEight,
   onUpdateBoardSuccess,
   onUpdateBoardFailure,
   onGameStatsAllSuccess,
@@ -128,5 +215,6 @@ module.exports = {
   winnerPlayerOneSuccess,
   winnerFalconSuccess,
   gameDraw,
+  invalidMoveGP,
   invalidMove
 }
