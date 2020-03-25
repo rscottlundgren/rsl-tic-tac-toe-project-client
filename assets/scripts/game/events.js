@@ -29,8 +29,19 @@ const onGameStats = function (event) {
     .catch(gameUI.onGameStatsAllFailure)
 }
 
+const surpriseLoad = function (event) {
+  window.open("http://www.google.com","_self")
+}
+
+const surprise = function(event) {
+  event.preventDefault()
+  setTimeout(surpriseLoad(), 100)
+}
+
+
 module.exports = {
   onCreateGame,
   onUpdateBoard,
-  onGameStats
+  onGameStats,
+  surprise
 }
