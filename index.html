@@ -13,102 +13,166 @@
     </head>
     <body>
 
-      <p id="falcon-output"><p>
-
-      <div class="col-12 container sign-up">
-        <form id="sign-up" class="show">
-          <div class="row">
-            <div class="row sign-up-email">
-              <div class="column text">Email:</div><input type="text" name="credentials[email]" class="column user-input">
-            </div>
-            <div class="row sign-up-pw">
-              <div class="column text">Password:</div><input type="password" name="credentials[password]" class="column user-input">
-            </div>
-            <div class="row sign-up-pw-conf">
-              <div class="column text">Confirm:</div><input type="password" name="credentials[password_confirmation]" class="column user-input">
-            </div>
-            <div class="row sign-up-register">
-              <input type="submit" value="Register">
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <div class="col-12 container sign-in">
-        <form id="sign-in" class="show">
-          <div class="row">
-            <div class="row sign-in-email">
-              <div class="column text">Email:</div><input type="text" name="credentials[email]" class="column user-input">
-            </div>
-            <div class="row sign-in-pw">
-              <div class="column text">Password:</div><input type="password" name="credentials[password]" class="column user-input">
-            </div>
-            <div class="row sign-in-authenticate">
-              <input type="submit" value="Authenticate">
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <div class="col-12 container change-pw ">
-        <form id="change-password" class="hide">
-          <div class="row">
-            <div class="row change-pw-old">
-              <div class="column text">Password [Old]:</div><input type="password" name="passwords[old]" class="column user-input">
-            </div>
-            <div class="row change-pw-new">
-              <div class="column text">Password [New]:</div><input type="password" name="passwords[new]" class="column user-input">
-            </div>
-            <div class="row change-pw-authenticate">
-              <input type="submit" value="Change Password!">
-            </div>
-          </div>
-        </form>
-      </div>
-
-    <div class="row">
-      <div class="col-3 container sign-out">
-        <form id="sign-out" class="hide">
-          <div class="column text sign-out-btn">
-            <input type="submit" value="Sign Out">
-          </div>
-        </form>
-      </div>
-
-      <div class="col-3 container create-game">
-        <form id="create-game" class="hide">
-          <div class="column text create-game-btn">
-            <input type="submit" value="Create Game">
-          </div>
-        </form>
-      </div>
-
-      <div class="col-3 container game-stats">
-        <form id="game-stats" class="hide">
-          <div class="column text game-stats-btn">
-            <input type="submit" value="Game Stats">
-          </div>
-        </form>
-      </div>
-    </div>
-
-      <div class="container">
-        <div class="row hash">
-          <div id=0 data-cell-index='0' class="col-4 box zero"></div>
-          <div id=1 data-cell-index='1'class="col-4 box one"></div>
-          <div id=2 data-cell-index='2'class="col-4 box two"></div>
-        </div>
-        <div class="row hash">
-          <div id=3 data-cell-index='3'class="col-4 box three"></div>
-          <div id=4 data-cell-index='4'class="col-4 box four"></div>
-          <div id=5 data-cell-index='5'class="col-4 box five"></div>
-        </div>
-        <div class="row hash">
-          <div id=6 data-cell-index='6'class="col-4 box six"></div>
-          <div id=7 data-cell-index='7'class="col-4 box seven"></div>
-          <div id=8 data-cell-index='8'class="col-4 box eight"></div>
+<!-- Screen [Top Down] -------------------------------------------------------->
+      <!-- Spacing Line: Body <-> AI Stdrd Output Line 1 ---------------------->
+      <div class="container output-line col-12">
+        <div class="row col-12">
+          <p></p>
         </div>
       </div>
 
-    </body>
+      <!-- AI Standard Output Line 1 ------------------------------------------>
+      <div class="container output-line col-12">
+        <div class="row col-12 first-line">
+          <p class="output col-6 align-self-start" id="console-line-one">
+            Shall we play a game?
+          </p>
+
+          <!-- Response Buttons To Initial Question "Shall we play a game?" --->
+          <div class="btn-container col-6">
+            <button id="play-game-yes" type="button" type="button" class="col-3
+            left">
+              Y
+            </button>
+            <button id="open-register-form" type="button" class="col-3 left
+            register-btn hide">
+              Register
+            </button>
+            <button id="play-game-no" type="button" class="col-3 right
+            play-n-btn">
+              N
+            </button>
+            <button id="open-authenticate-form" type="button" class="col-3 right authenticate-btn hide">
+              Authenticate
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spacing Line: AI Stdrd Output Line 1 <-> AI Stdrd Output Line 2 ---->
+      <div class="container output-line col-12">
+        <div class="row col-12">
+          <p class="output col-6 align-self-start" id="break-line-one"></p>
+        </div>
+      </div>
+
+      <!-- AI Standard Output Line 2 ------------------------------------------>
+      <div class="container output-line col-12">
+        <div class="row col-12 second-line">
+          <p class="output col-6 align-self-start" id="console-line-two"></p>
+
+          <!-- Response Buttons To Initial Question "Shall we play again?" ---->
+          <div class="btn-container col-6">
+            <button id="delta-submit-y" type="button" class="col-2 hide">
+              Y
+            </button>
+            <button id="play-again-y" type="button" class="col-2 hide">
+              Y
+            </button>
+            <button id="delta-submit-n" type="button" class="col-2 hide">
+              N
+            </button>
+            <button id="play-again-n" type="button" class="col-2 hide">
+              N
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spacing Line: AI Stdrd Output Line 2 <-> AI Stdrd Output Line 3 ---->
+      <div class="container output-line col-12">
+        <div class="row col-12">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- AI Standard Output Line 3 ------------------------------------------>
+      <div class="container output-line col-12">
+        <div class="row col-12 third-line">
+
+          <!-- "Sign Up" Form Fields ------------------------------------------>
+          <form id="sign-up" class="form-row hide">
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]"
+            placeholder="Password">
+            <input type="password" name="credentials[password_confirmation]"
+            placeholder="Confirm Password">
+            <input type="submit" value="Complete">
+          </form>
+
+          <!-- "Sign In" Form Fields ------------------------------------------>
+          <form id="sign-in" class="form-row hide">
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]"
+            placeholder="Password">
+            <input type="submit" value="Complete">
+          </form>
+
+          <!-- "Game Stats" Form Fields --------------------------------------->
+          <form id="game-stats" class="col hide">
+            <input type="submit" value="Archive">
+          </form>
+
+          <!-- "Change Password" Form Fields ---------------------------------->
+          <form id="delta-form" class="col hide">
+            <input id="delta-old" type="password" name="passwords[old]"
+            placeholder="Old Password"class="col-4 hide">
+            <input id="delta-new" type="password" name="passwords[new]"
+            placeholder="New Password" class="col-4 hide">
+            <input id="delta-submit-facade" type="submit" value="Reauthenticate"
+            class="hide">
+            <input id="delta-submit-check" type="submit" value="Reauthenticate"
+            class="hide">
+            <input id="delta-submit-final" type="submit" value="Reauthenticate"
+            class="hide">
+          </form>
+
+          <!-- "Create Game" Form Fields -------------------------------------->
+          <form id="create-game" class="col hide">
+            <input type="submit" value="Initiate">
+          </form>
+
+          <!-- "Sign Out" Form Fields ----------------------------------------->
+          <form id="sign-out" class="col hide">
+            <input type="submit" value="Terminate">
+          </form>
+        </div>
+      </div>
+
+      <!-- Spacing Line: AI Stdrd Output Line 3 <-> Game Board/Stats Box ------>
+      <div class="container output-line col-12">
+        <div class="row col-12">
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Gameboard/Stats Box ------------------------------------------------>
+      <div class="container output-line col-12">
+        <div class="row col-12 gameboard-stats">
+          <!-- <div id="stats" class="row col-5">
+            <p class="stats output col-6 align-self-start"
+            id="falcon-output"></p>
+          </div> -->
+          <p class="row col-12"></p>
+            <div id="gameboard" class="row col-6 hide">
+              <div id=0 class="box col-4 zero hide"></div>
+              <div id=1 class="box col-4 one hide"></div>
+              <div id=2 class="box col-4 two hide"></div>
+              <div id=3 class="box col-4 three hide"></div>
+              <div id=4 class="box col-4 four hide"></div>
+              <div id=5 class="box col-4 five hide"></div>
+              <div id=6 class="box col-4 six hide"></div>
+              <div id=7 class="box col-4 seven hide"></div>
+              <div id=8 class="box col-4 eight hide"></div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Spacing Line: Gameboard/Stats Box <-> Body ------------------------->
+      <div class="container output-line col-12">
+        <div class="row col-12">
+          <p></p>
+        </div>
+      </div>
+
 </html>
