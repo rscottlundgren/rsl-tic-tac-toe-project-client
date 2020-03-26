@@ -32,6 +32,7 @@ const onOpenAuthenticate = function (event) {
 
 const onCreateGameSuccess = function (data) {
   $('#console-line-one').text('Game initiated. Your move, Professor.')
+  $('#console-line-two').text('')
   $('#gameboard').removeClass('hide')
   $('#0').removeClass('hide')
   $('#1').removeClass('hide')
