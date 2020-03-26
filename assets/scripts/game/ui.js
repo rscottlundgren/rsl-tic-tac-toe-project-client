@@ -183,6 +183,11 @@ const invalidMoveGP = function () {
   $('#console-line-two').text('Please select another coordinate.')
 }
 
+const invalidMoveSM = function () {
+  $('#console-line-one').text('Invalid move, Professor.')
+  $('#console-line-two').text('The game is over. Shall we play again?')
+}
+
 const invalidMove = function () {
   $('#console-line-one').text('Invalid move, Professor.')
   if (store.game.game.over === true) {
@@ -217,5 +222,6 @@ module.exports = {
   winnerFalconSuccess,
   gameDraw,
   invalidMoveGP,
-  invalidMove
+  invalidMove,
+  invalidMoveSM
 }
