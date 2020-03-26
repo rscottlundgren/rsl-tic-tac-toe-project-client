@@ -42,7 +42,8 @@ const signInFailure = function (error) {
 // Change Password User Interface
 const onDeltaSubmitFacade = function (event) {
   event.preventDefault()
-  $('#console-line-one').text('')
+  $('#console-line-one').text('Update your credentials below, Professor.')
+  $('#console-line-two').text('')
   $('#delta-submit-facade').addClass('hide')
   $('#delta-submit-check').removeClass('hide')
   $('#delta-old').removeClass('hide')
@@ -55,10 +56,15 @@ const onDeltaSubmitFacade = function (event) {
 }
 const onDeltaSubmitCheck = function (event) {
   event.preventDefault()
-  $('#console-line-one').text('Have you used this password on another website?')
-  $('#console-line-two').text('')
-  $('#delta-submit-y').removeClass('hide')
-  $('#delta-submit-n').removeClass('hide')
+  if ($('#delta-old').val() === '' || $('delta-new').val() === '') {
+    $('#console-line-one').text('The form is empty, Professor.')
+    $('#console-line-two').text('Please complete both fields.')
+  } else {
+    $('#console-line-one').text('Update your credentials below, Professor.')
+    $('#console-line-two').text('Have you used this password on another website?')
+    $('#delta-submit-y').removeClass('hide')
+    $('#delta-submit-n').removeClass('hide')
+  }
 }
 const onPasswordCheckYes = function (event) {
   event.preventDefault()
@@ -94,8 +100,8 @@ const changePasswordSuccess = function (data) {
   $('#sign-out').removeClass('hide')
 }
 const changePasswordFailure = function (error) {
-  event.preventDefault()
   $('#console-line-one').text('Credential update unsuccessful. Please try again.')
+  $('#console-line-two').text('')
   $('#delta-old').val('')
   $('#delta-new').val('')
 }
