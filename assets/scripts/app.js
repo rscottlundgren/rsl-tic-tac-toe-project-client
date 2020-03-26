@@ -13,7 +13,7 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#create-game').on('submit', gameEvents.onCreateGame)
   $('.col-4.box').on('click', gameEngine.togglePlayer)
-  $('.col-4.box').on('click', gameEngine.moveMessage)
+  // $('.col-4.box').on('click', gameEngine.moveMessage)
   // $('#0').on('click', gameUI.onCoordinateZero)
   // $('#1').on('click', gameUI.onCoordinateOne)
   // $('#2').on('click', gameUI.onCoordinateTwo)
