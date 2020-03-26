@@ -14,8 +14,6 @@ const createGame = function () {
 }
 
 const updateBoard = function (gameData) {
-  console.log(gameData)
-  console.log(store.game)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.game.id,
     method: 'PATCH',

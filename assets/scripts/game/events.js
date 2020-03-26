@@ -13,7 +13,6 @@ const onCreateGame = function (event) {
 }
 
 const onUpdateBoard = function (gameData) {
-  console.log(gameData)
   event.preventDefault()
   gameAPI.updateBoard({
     gameData

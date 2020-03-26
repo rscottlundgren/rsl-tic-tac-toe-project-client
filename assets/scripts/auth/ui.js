@@ -7,12 +7,10 @@ const signUpSuccess = function (data) {
   $('#console-line-one').text('Registration Successful.')
   $('#sign-up').trigger('reset')
   $('#sign-up').addClass('hide')
-  // console.log('signUpSuccess data is: ', data)
 }
 const signUpFailure = function (error) {
   $('#console-line-one').text('Registration unsuccessful. Confirm matching credentials.')
   $('#sign-up').trigger('reset')
-  // console.log('signUpFailure error is: ', error)
 }
 
 // Sign-In User Interface
@@ -30,9 +28,7 @@ const signInSuccess = function (data) {
   $('#delta-submit-facade').removeClass('hide')
   $('#open-register-form').addClass('hide')
   $('#open-authenticate-form').addClass('hide')
-  // console.log(data)
   store.user = data.user
-  // console.log(store)
 }
 const signInFailure = function (error) {
   $('#console-line-one').text('Authentication unsuccessful. Please try again.')

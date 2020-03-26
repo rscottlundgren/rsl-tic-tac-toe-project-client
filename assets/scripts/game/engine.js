@@ -173,18 +173,23 @@ const togglePlayer = function (event) {
   const cellText = $(event.target).text()
   // Assign id stored when a cell is clicked to the "clickedTile" variable
   const clickedTile = event.target.id
-
+  // Assign test parameters to "boardTest" to confirm if cells array consists
+  // entirely of strings abd return a boolean value
   const boardTest = (boardIndices) => boardIndices !== ''
-  // If the value stored in cellText is either an 'X' or an 'O'
+  // If the value stored in "store.game.game.over" is true
   if (store.game.game.over === true) {
     // Run the "invalidMove" function stored in gameUI
     gameUI.invalidMove()
     // Escape
     return
-  // If the above passes, if the value stored in "store.game.game.over" is true
+  // If boardTest when run returns a value of true for ever cell in the
+  // store.game.game.cells array
   } else if (store.game.game.cells.every(boardTest) === true) {
+    // Run the "invalidMoveSM" function stored in the gameUI
     gameUI.invalidMoveSM()
+    // Escape
     return
+  // If the value stored in cellText is either an 'X' or an 'O'
   } else if (cellText === 'X' || cellText === 'O') {
     // Run the "invalidMoveGP" function stored in gameUI
     gameUI.invalidMoveGP()

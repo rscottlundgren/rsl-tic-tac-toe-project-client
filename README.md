@@ -22,15 +22,15 @@ The first thing I built was the authentication interaction with the API. Moving 
 Let me start off by saying, there's a reason that this is version one. The biggest struggles I experienced were interacting with the game API and pieces of the game logic. JavaScript is a new language for me (along with the more advanced pieces of HTML & CSS) so this was really jumping into the proverbial deep end. There were times where I had a basically working product which would then break and the process of troubleshooting would just cause more errors (read: #developerproblems). Ultimately, I loved the experience of the project - I really enjoyed the highs of getting my code to work, but like any fledgling/initial endeavor, there were a lot (and I do mean a lot) of lows. I have a feeling that this will be a project I'll be tinkering with for the next six months until I get it just the way I want it, learning throughout the process (which is exactly what this was from the beginning - a great learning experience).
 
 ## Unsolved Problems
-* [ ] Formatting isn't uniform
+* [X] Formatting isn't uniform
 * [ ] Win condition clunky
-* [ ] Can still click after game is won
-* [ ] More authentic user interface
-* [ ] Clear game board malfunction
-* [ ] Still browser refresh for full functionality
-* [ ] Switch between X & O is still clunky and inconsistent
-* [ ] Messaging re: Turns & Win/Loss incosistent
-* [ ] Inconsistent ability to support playing multiple games, one at a time
+* [X] Can still click after game is won
+* [X] More authentic user interface
+* [X] Clear game board malfunction
+* [X] Still browser refresh for full functionality
+* [X] Switch between X & O is still clunky and inconsistent
+* [X] Messaging re: Turns & Win/Loss inconsistent
+* [X] Inconsistent ability to support playing multiple games, one at a time
 * [ ] Still displays some debugging messages in console
 * [ ] Still displays some errors/warnings in the console
 

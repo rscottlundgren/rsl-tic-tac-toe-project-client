@@ -48,8 +48,6 @@ const onCreateGameSuccess = function (data) {
 }
 const onCreateGameFailure = function (error) {
   $('#console-line-one').text('Game initiation unsuccessful. Please try again.')
-  // console.log('Error Creating Game')
-  // console.log('createGameFailure error is: ', error)
 }
 
 const onCoordinateZero = function (event) {
@@ -121,14 +119,10 @@ const onCoordinateEight = function (event) {
 const onUpdateBoardSuccess = function (data) {
   $('#falcon-output').removeClass()
   $('#falcon-output').addClass('success')
-  //console.log('Game ID is: ' + store.game.id)
-  //console.log(store.game.game.cell)
 }
 const onUpdateBoardFailure = function (error) {
   $('#falcon-output').removeClass()
   $('#falcon-output').addClass('failure')
-  // console.log('Error Updating Game')
-  // console.log('updateBoardFailure error is: ', error)
 }
 
 const onGameStatsAllSuccess = function (store) {
@@ -141,8 +135,6 @@ const onGameStatsAllSuccess = function (store) {
 const onGameStatsAllFailure = function (error) {
   $('#falcon-output').removeClass()
   $('#falcon-output').addClass('failure')
-  console.log('Error Updating Game')
-  console.log('updateBoardFailure error is: ', error)
 }
 
 const clearBoard = function () {

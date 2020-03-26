@@ -25,7 +25,6 @@ const signIn = function (data) {
 
 // Change Password API Ajax Call
 const changePassword = function (data) {
-  console.log('In api.js')
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -37,7 +36,6 @@ const changePassword = function (data) {
 }
 
 const signOut = function () {
-  console.log('In api.js')
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
