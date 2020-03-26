@@ -173,14 +173,19 @@ const togglePlayer = function (event) {
   const cellText = $(event.target).text()
   // Assign id stored when a cell is clicked to the "clickedTile" variable
   const clickedTile = event.target.id
+
+  const boardTest = (boardIndices) => boardIndices !== ''
   // If the value stored in cellText is either an 'X' or an 'O'
-  if (cellText === 'X' || cellText === 'O') {
-    // Run the "invalidMoveGP" function stored in gameUI
-    gameUI.invalidMoveGP()
+  if (store.game.game.over === true) {
+    // Run the "invalidMove" function stored in gameUI
+    gameUI.invalidMove()
     // Escape
     return
   // If the above passes, if the value stored in "store.game.game.over" is true
-  } else if (store.game.game.over === true) {
+  } else if (store.game.game.cells.every(boardTest) === true) {
+    gameUI.invalidMoveSM()
+    return
+  } else if (cellText === 'X' || cellText === 'O') {
     // Run the "invalidMoveGP" function stored in gameUI
     gameUI.invalidMoveGP()
     // Escape
