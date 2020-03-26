@@ -11,7 +11,6 @@ const createGame = function () {
       Authorization: 'Token token=' + store.user.token,
     }
   })
-console.log(store.user.token)
 }
 
 const updateBoard = function (gameData) {
